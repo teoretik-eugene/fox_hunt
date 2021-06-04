@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <iostream>
 #include <windows.h>
 #include <locale>
@@ -35,6 +35,8 @@ public:
 	/* Создание матрицы - поля */
 	Coord** board = new Coord * [10];
 	Board() {
+		char fox = 253, user = 1;
+		std::cout << fox << "- Fox  " << user << "- User's position" << std::endl;
 		for (int j = 0; j < 10; j++) {
 			board[j] = new Coord[10];
 		}
@@ -226,7 +228,7 @@ public:
 			x_new--; y_new--;
 		}
 
-		dr_brd->DrawUser(x, y);
+		dr_brd->DrawUser(x, y);			// Если наступил на позицию, где есть лис, то не высвечивает лиса
 		x_old = 6 + 2*x; y_old = 12-y;
 
 		return fox;
