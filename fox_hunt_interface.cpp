@@ -104,9 +104,9 @@ public:
 
 /* Реализация игры */
 class Game {
-public:
+public:								// Старые координаты используются для удаления предыдущей позиции игрока 
 	int x_old = 6, y_old = 12;		// Установим начальные значения координат, чтобы не выдавались ошибки
-	Board* brd = nullptr;
+	Board* brd = nullptr;		
 	DrawBoard* dr_brd = nullptr;
 	Game(Board* ptr, DrawBoard *d_ptr) {
 		brd = ptr;
@@ -229,7 +229,7 @@ public:
 		}
 
 		dr_brd->DrawUser(x, y);			// Если наступил на позицию, где есть лис, то не высвечивает лиса
-		x_old = 6 + 2*x; y_old = 12-y;
+		x_old = 6 + 2*x; y_old = 12-y;		// Теперь "новые" координаты будут "старыми"
 
 		return fox;
 	}
